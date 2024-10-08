@@ -95,7 +95,7 @@ class ConvBlock(nn.Module):
         out = self.bn1(out)
         out = self.relu(out)
 
-        # Integrate time embedding
+        # Add time embedding
         t_emb = self.time_mlp(t_emb).unsqueeze(-1).unsqueeze(-1)  # Shape: [B, out_channels, 1, 1]
         out = out + t_emb  # Residual connection
 
